@@ -5,6 +5,26 @@ app_description = "IT Inventory Application"
 app_email = "properus@gmail.com"
 app_license = "mit"
 
+# desktop = "properus_custom.config.desktop.get_data"
+app_include_js = ["/assets/properus_custom/js/sidebar.js"]
+desktop = "properus_custom.desktop.get_data"
+
+
+# app_include_desktop = "properus_custom.config.desktop.get_data"
+
+
+fixtures = [
+    "Custom Field",
+    "Property Setter",
+    "Print Format",
+    "Report",
+    "Workspace",
+    # "Workspace Item"
+]
+
+
+
+
 # Apps
 # ------------------
 
