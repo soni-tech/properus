@@ -1,0 +1,59 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:kode_dokumen",
+ "creation": "2025-08-28 20:16:01.303728",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "dokumen_pabean_section",
+  "kode_dokumen",
+  "uraian"
+ ],
+ "fields": [
+  {
+   "fieldname": "dokumen_pabean_section",
+   "fieldtype": "Section Break",
+   "label": "Dokumen Pabean"
+  },
+  {
+   "fieldname": "kode_dokumen",
+   "fieldtype": "Data",
+   "label": "Kode Dokumen",
+   "unique": 1
+  },
+  {
+   "fieldname": "uraian",
+   "fieldtype": "Data",
+   "label": "Uraian"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-28 21:00:08.201924",
+ "modified_by": "Administrator",
+ "module": "properus_custom",
+ "name": "Jenis Dokumen Pabean",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

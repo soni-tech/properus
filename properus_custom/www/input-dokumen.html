@@ -1,0 +1,30 @@
+{% extends "templates/web.html" %}
+{% block page_content %}
+<h3>Input Jenis Dokumen Baru</h3>
+
+<form id="form-input">
+  <label>Nama Jenis Dokumen</label>
+  <input type="text" name="nama_jenis_dokumen" required><br><br>
+
+  <button type="submit">Simpan</button>
+</form>
+
+<script>
+document.querySelector("#form-input").onsubmit = function(e) {
+    e.preventDefault();
+    frappe.call({
+        method: "properus_custom.api.save_jenis_dokumen",
+        args: {
+            nama_jenis_dokumen: this.nama_jenis_dokumen.value
+        },
+        callback: function(r) {
+            frappe.msgprint("Jenis Dokumen berhasil disimpan!");
+            document.querySelector("#form-input").reset();
+        },
+        error: function(err) {
+            frappe.msgprint("Terjadi error: " + err.message);
+        }
+    });
+}
+</script>
+{% endblock %}
