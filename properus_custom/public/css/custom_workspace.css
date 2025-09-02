@@ -1,0 +1,10 @@
+/* Shortcut titik hijau untuk workspace "Pemasukan Barang" */
+.workspace-shortcut a[title="Testing"] .octicon-arrow-up {
+    display: none;       /* sembunyikan panah default */
+}
+
+.workspace-shortcut a[title="Testing"] .octicon {
+    content: '●';        /* bullet titik */
+    font-size: 12px;      /* ukuran titik */
+    color: green;         /* warna hijau */
+}

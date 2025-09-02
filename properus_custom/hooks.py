@@ -5,8 +5,14 @@ app_description = "IT Inventory Application"
 app_email = "properus@gmail.com"
 app_license = "mit"
 
+app_include_css = "/assets/properus_custom/public/css/custom_workspace.css"
+
+
+app_include_js = "/assets/your_app/js/custom_redirect.js"
+
+
 # desktop = "properus_custom.config.desktop.get_data"
-app_include_js = ["/assets/properus_custom/js/sidebar.js"]
+# app_include_js = ["/assets/properus_custom/js/sidebar.js"]
 desktop = "properus_custom.desktop.get_data"
 
 
