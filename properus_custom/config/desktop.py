@@ -3,11 +3,20 @@ from frappe import _
 def get_data():
     return [
         {
-            "module_name": "Pemasukan Custom",
-            "category": "Modules",
-            "label": _("Pemasukan Custom"),
-            "icon": "octicon octicon-plus",   # bebas, ikon opsional
+            "module_name": "properus_custom",  # Workspace / Module Name
+            "color": "blue",
+            "icon": "octicon octicon-package",
             "type": "module",
-            "description": "Menu untuk Pemasukan Custom"
+            "label": _("Testing"),
+            "items": [
+                {
+                    "type": "doctype",
+                    "name": "Pemasukan Barang",
+                    "label": _("Pemasukan"),
+                    "description": _("Form input Pemasukan Barang"),
+                    # Ini bikin shortcut langsung buka form baru
+                    "link": "/app/pemasukan-barang/new"
+                }
+            ]
         }
     ]

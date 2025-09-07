@@ -1,22 +1,22 @@
 {
  "charts": [],
- "content": "[{\"id\":\"ap-SiwA1zf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Entry\",\"col\":3}},{\"id\":\"qNzbJYo1Ly\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Ledger\",\"col\":3}}]",
- "creation": "2025-08-30 14:55:56.634845",
+ "content": "[{\"id\":\"ap-SiwA1zf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Entry\",\"col\":3}},{\"id\":\"SQ1fZVrA9K\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Ledger\",\"col\":3}}]",
+ "creation": "2025-08-30 14:37:57.324012",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
  "icon": "small-file",
- "idx": 1,
+ "idx": 0,
  "indicator_color": "green",
  "is_hidden": 0,
- "label": "Gudang Scrap",
+ "label": "Gudang WIP",
  "links": [],
- "modified": "2025-09-07 05:15:00.261554",
+ "modified": "2025-09-07 07:05:42.786230",
  "modified_by": "Administrator",
  "module": "properus_custom",
- "name": "Gudang Scrap",
+ "name": "Gudang WIP",
  "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
@@ -25,10 +25,16 @@
  "restrict_to_domain": "",
  "roles": [
   {
-   "role": "Gudang Scrap"
+   "role": "Produksi"
+  },
+  {
+   "role": "Gudang WIP"
+  },
+  {
+   "role": "Accounts User"
   }
  ],
- "sequence_id": 12.0,
+ "sequence_id": 10.0,
  "shortcuts": [
   {
    "color": "Grey",
@@ -44,9 +50,8 @@
    "label": "Stock Ledger",
    "link_to": "Stock Ledger",
    "report_ref_doctype": "Stock Ledger Entry",
-   "stats_filter": "[]",
    "type": "Report"
   }
  ],
- "title": "Gudang Scrap"
+ "title": "Gudang WIP"
 }

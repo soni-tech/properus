@@ -1,0 +1,73 @@
+{
+ "charts": [
+  {
+   "chart_name": "For Pemasukan Chart",
+   "label": "Pemasukan"
+  }
+ ],
+ "content": "[{\"id\":\"uULBfbci0S\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Pemasukan\",\"col\":12}},{\"id\":\"wwAoBx30p3\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"LkqrpJHM9X\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"NCakdKSI5J\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pemasukan Barang\",\"col\":5}},{\"id\":\"aMjrt4ZrnZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Laporan Pemasukan Barang\",\"col\":3}},{\"id\":\"cGUtgBcGIh\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Entry\",\"col\":3}},{\"id\":\"55ObSbEqiB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Receipt\",\"col\":3}}]",
+ "creation": "2025-08-27 23:24:47.384212",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "small-file",
+ "idx": 0,
+ "indicator_color": "",
+ "is_hidden": 0,
+ "label": "Pemasukan",
+ "links": [],
+ "modified": "2025-09-07 00:24:35.280625",
+ "modified_by": "Administrator",
+ "module": "properus_custom",
+ "name": "Pemasukan",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [
+  {
+   "role": "Exim"
+  }
+ ],
+ "sequence_id": 4.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Purchase Receipt",
+   "link_to": "Purchase Receipt",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "format": "{} total pemasukan",
+   "label": "Pemasukan Barang",
+   "link_to": "Pemasukan Barang",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Laporan Pemasukan Barang",
+   "link_to": "Pemasukan Barang Report",
+   "report_ref_doctype": "Pemasukan Barang",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Stock Entry",
+   "link_to": "Stock Entry",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Pemasukan"
+}
