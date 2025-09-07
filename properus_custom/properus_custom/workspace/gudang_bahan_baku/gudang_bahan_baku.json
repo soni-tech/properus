@@ -7,13 +7,13 @@
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "small-file",
+ "icon": "stock",
  "idx": 0,
- "indicator_color": "green",
- "is_hidden": 0,
+ "indicator_color": "",
+ "is_hidden": 1,
  "label": "Gudang Bahan Baku",
  "links": [],
- "modified": "2025-09-07 06:32:04.942319",
+ "modified": "2025-09-07 17:53:45.695522",
  "modified_by": "Administrator",
  "module": "properus_custom",
  "name": "Gudang Bahan Baku",
@@ -31,7 +31,7 @@
    "role": "Gdg Bahan Baku"
   }
  ],
- "sequence_id": 8.0,
+ "sequence_id": 15.0,
  "shortcuts": [
   {
    "color": "Grey",

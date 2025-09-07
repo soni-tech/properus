@@ -7,9 +7,9 @@
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "small-file",
+ "icon": "milestone",
  "idx": 0,
- "indicator_color": "green",
+ "indicator_color": "",
  "is_hidden": 0,
  "label": "Stok Opname",
  "links": [
@@ -479,7 +479,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-09-06 20:56:40.199063",
+ "modified": "2025-09-07 17:53:45.553318",
  "modified_by": "Administrator",
  "module": "properus_custom",
  "name": "Stok Opname",
@@ -494,7 +494,7 @@
    "role": "Exim"
   }
  ],
- "sequence_id": 13.0,
+ "sequence_id": 12.0,
  "shortcuts": [
   {
    "color": "Grey",

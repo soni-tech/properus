@@ -1,19 +1,19 @@
 {
  "charts": [],
- "content": "[{\"id\":\"ap-SiwA1zf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Entry\",\"col\":3}},{\"id\":\"SQ1fZVrA9K\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Ledger\",\"col\":3}}]",
+ "content": "[{\"id\":\"ap-SiwA1zf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Entry\",\"col\":3}},{\"id\":\"SQ1fZVrA9K\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Ledger\",\"col\":3}},{\"id\":\"tiLc36sBb4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Request\",\"col\":3}}]",
  "creation": "2025-08-30 14:37:57.324012",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "small-file",
+ "icon": "workflow",
  "idx": 0,
- "indicator_color": "green",
+ "indicator_color": "",
  "is_hidden": 0,
  "label": "Gudang WIP",
  "links": [],
- "modified": "2025-09-07 07:05:42.786230",
+ "modified": "2025-09-07 21:37:13.560214",
  "modified_by": "Administrator",
  "module": "properus_custom",
  "name": "Gudang WIP",
@@ -34,7 +34,7 @@
    "role": "Accounts User"
   }
  ],
- "sequence_id": 10.0,
+ "sequence_id": 9.0,
  "shortcuts": [
   {
    "color": "Grey",
@@ -51,6 +51,14 @@
    "link_to": "Stock Ledger",
    "report_ref_doctype": "Stock Ledger Entry",
    "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Material Request",
+   "link_to": "Material Request",
+   "stats_filter": "[]",
+   "type": "DocType"
   }
  ],
  "title": "Gudang WIP"

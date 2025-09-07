@@ -12,9 +12,9 @@
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "small-file",
+ "icon": "accounting",
  "idx": 0,
- "indicator_color": "green",
+ "indicator_color": "",
  "is_hidden": 0,
  "label": "Akunting",
  "links": [
@@ -375,7 +375,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-09-07 08:30:52.560295",
+ "modified": "2025-09-07 17:53:45.903597",
  "modified_by": "Administrator",
  "module": "properus_custom",
  "name": "Akunting",
@@ -407,7 +407,7 @@
    "role": "Akunting"
   }
  ],
- "sequence_id": 25.0,
+ "sequence_id": 18.0,
  "shortcuts": [
   {
    "doc_view": "",
