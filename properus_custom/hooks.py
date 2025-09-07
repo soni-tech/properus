@@ -20,11 +20,13 @@ desktop = "properus_custom.desktop.get_data"
 fixtures = [
     "Custom Field",
     "Property Setter",
-    "Print Format",
     "Report",
+    "Role",
     "Workspace",
-    # "Workspace Item"
+    "Client Script",
+    "Server Script"
 ]
+
 
 
 
