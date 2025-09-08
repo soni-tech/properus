@@ -2,3 +2,25 @@ Properus
 properus_custom
 Pemasukan Custom
 Properus Stock
+
+untuk pc
+masih pakai windows 10
+antivirus bawaan,
+
+untuk laptop
+sudah pakai windows 11,
+antivirus mcafee,
+
+
+step2 yg telah dilakukan,
+update windows,
+update security pada windows, (dari off ke on)
+uinstall antivirus bawaan (mcafee),
+instalasi antivirus kapersky,
+full scanning antivirus kapersy,
+
+
+hasil pertanyaan:
+bahwa akun sategal hanya dipakai oleh pic exim perusahaan, tidak diserahkan ke orang lain.
+akses internet hanya melalui wifi perusahaan / thetering hp
+antivirus tidak pernah diupdate,

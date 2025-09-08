@@ -1,10 +1,10 @@
 import frappe
+import requests
 
-@frappe.whitelist()
-def save_jenis_dokumen(nama_jenis_dokumen):
-    doc = frappe.get_doc({
-        "doctype": "Jenis Dokumen",  # pastikan Doctype sudah ada
-        "nama_jenis_dokumen": nama_jenis_dokumen
-    })
-    doc.insert()
-    return "success"
+@frappe.whitelist(allow_guest=True)
+def test_httpbin():
+    res = requests.post(
+        "https://httpbin.org/post",
+        json={"hello": "erpnext"}
+    )
+    return res.json()
