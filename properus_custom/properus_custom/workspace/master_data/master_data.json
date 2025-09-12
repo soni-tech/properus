@@ -11,12 +11,12 @@
  "idx": 0,
  "indicator_color": "",
  "is_hidden": 0,
- "label": "Data Master",
+ "label": "Master Data",
  "links": [],
- "modified": "2025-09-08 22:56:04.078469",
+ "modified": "2025-09-11 07:36:32.975375",
  "modified_by": "Administrator",
  "module": "properus_custom",
- "name": "Data Master",
+ "name": "Master Data",
  "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
@@ -100,5 +100,5 @@
    "type": "DocType"
   }
  ],
- "title": "Data Master"
+ "title": "Master Data"
 }

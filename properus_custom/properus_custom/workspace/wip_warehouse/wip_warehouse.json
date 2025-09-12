@@ -11,12 +11,12 @@
  "idx": 0,
  "indicator_color": "",
  "is_hidden": 0,
- "label": "Gudang WIP",
+ "label": "WIP Warehouse",
  "links": [],
- "modified": "2025-09-07 21:37:13.560214",
+ "modified": "2025-09-11 07:29:48.008946",
  "modified_by": "Administrator",
  "module": "properus_custom",
- "name": "Gudang WIP",
+ "name": "WIP Warehouse",
  "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
@@ -61,5 +61,5 @@
    "type": "DocType"
   }
  ],
- "title": "Gudang WIP"
+ "title": "WIP Warehouse"
 }

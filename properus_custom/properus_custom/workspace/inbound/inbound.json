@@ -16,12 +16,12 @@
  "idx": 0,
  "indicator_color": "",
  "is_hidden": 0,
- "label": "Pemasukan",
+ "label": "Inbound",
  "links": [],
- "modified": "2025-09-07 17:53:45.082532",
+ "modified": "2025-09-11 07:33:10.065187",
  "modified_by": "Administrator",
  "module": "properus_custom",
- "name": "Pemasukan",
+ "name": "Inbound",
  "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
@@ -44,15 +44,6 @@
    "type": "DocType"
   },
   {
-   "color": "Green",
-   "doc_view": "List",
-   "format": "{} total pemasukan",
-   "label": "Pemasukan Barang",
-   "link_to": "Pemasukan Barang",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
    "color": "Grey",
    "doc_view": "List",
    "label": "Laporan Pemasukan Barang",
@@ -67,7 +58,16 @@
    "link_to": "Stock Entry",
    "stats_filter": "[]",
    "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "Report Builder",
+   "format": "{} total pemasukan",
+   "label": "Pemasukan Barang",
+   "link_to": "Pemasukan Barang",
+   "stats_filter": "[]",
+   "type": "DocType"
   }
  ],
- "title": "Pemasukan"
+ "title": "Inbound"
 }

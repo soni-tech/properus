@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"CDxIM-WuZ9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Activity Log\",\"col\":3}},{\"id\":\"-Uh7DKJNJX\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Activity Type\",\"col\":3}},{\"id\":\"K9ST9xcDXh\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Activity Cost\",\"col\":3}},{\"id\":\"27IdVHVQMb\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Asset Activity\",\"col\":3}},{\"id\":\"R3CoYYFXye\",\"type\":\"spacer\",\"data\":{\"col\":12}}]",
+ "content": "[{\"id\":\"CDxIM-WuZ9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Activity Log\",\"col\":3}},{\"id\":\"R3CoYYFXye\",\"type\":\"spacer\",\"data\":{\"col\":12}}]",
  "creation": "2025-08-27 23:24:48.274285",
  "custom_blocks": [],
  "docstatus": 0,
@@ -278,7 +278,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-09-07 17:53:45.986358",
+ "modified": "2025-09-11 00:02:55.956997",
  "modified_by": "Administrator",
  "module": "properus_custom",
  "name": "Log Aktivitas",
@@ -301,30 +301,6 @@
    "format": "{}",
    "label": "Activity Log",
    "link_to": "Activity Log",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "",
-   "icon": "accounting",
-   "label": "Activity Type",
-   "link_to": "Activity Type",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "",
-   "icon": "stock",
-   "label": "Activity Cost",
-   "link_to": "Activity Cost",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "",
-   "icon": "sell",
-   "label": "Asset Activity",
-   "link_to": "Asset Activity",
    "stats_filter": "[]",
    "type": "DocType"
   }

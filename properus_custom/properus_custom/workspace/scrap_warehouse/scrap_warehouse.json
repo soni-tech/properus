@@ -11,12 +11,12 @@
  "idx": 1,
  "indicator_color": "",
  "is_hidden": 0,
- "label": "Gudang Scrap",
+ "label": "Scrap Warehouse",
  "links": [],
- "modified": "2025-09-07 17:53:45.495221",
+ "modified": "2025-09-11 07:30:49.266075",
  "modified_by": "Administrator",
  "module": "properus_custom",
- "name": "Gudang Scrap",
+ "name": "Scrap Warehouse",
  "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
@@ -48,5 +48,5 @@
    "type": "Report"
   }
  ],
- "title": "Gudang Scrap"
+ "title": "Scrap Warehouse"
 }
