@@ -471,5 +471,49 @@
   "name": "tombol back2",
   "script": "frappe.listview_settings['Stock Entry'] = {\r\n    onload(listview) {\r\n        if (!listview.page.custom_back_btn) {\r\n            listview.page.custom_back_btn = listview.page.set_secondary_action(__('Back'), () => {\r\n                // langsung ke /app/home\r\n                window.location.href = '/app/stok-opname';\r\n            });\r\n        }\r\n    }\r\n};",
   "view": "List"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Pemasukan Barang",
+  "enabled": 0,
+  "modified": "2025-09-12 00:52:27.132274",
+  "module": null,
+  "name": "toogle ke kiri",
+  "script": "frappe.ui.form.on('Pemasukan Barang', {\r\n    onload: function(frm) {\r\n        // Fungsi collapse sidebar\r\n        function collapse_sidebar() {\r\n            if (frappe && frappe.layout) {\r\n                if (!frappe.layout.is_sidebar_collapsed) {\r\n                    frappe.layout.toggle_sidebar(); // collapse sidebar\r\n                }\r\n            }\r\n        }\r\n\r\n        // Tunggu sampai layout siap\r\n        frappe.ready(function() {\r\n            // Jalankan saat toolbar & layout render\r\n            if (frappe.ui.toolbar) {\r\n                // backup original render\r\n                if (!frappe.ui.toolbar.original_render) {\r\n                    frappe.ui.toolbar.original_render = frappe.ui.toolbar.render;\r\n                }\r\n                frappe.ui.toolbar.render = function() {\r\n                    frappe.ui.toolbar.original_render && frappe.ui.toolbar.original_render();\r\n                    collapse_sidebar();\r\n                };\r\n            }\r\n\r\n            // Backup: jalankan sekali lagi setelah 1 detik\r\n            setTimeout(collapse_sidebar, 1000);\r\n        });\r\n    }\r\n});\r\n",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Stock Reconciliation",
+  "enabled": 1,
+  "modified": "2025-09-12 00:59:04.801938",
+  "module": null,
+  "name": "hide id",
+  "script": "frappe.listview_settings['Stock Reconciliation'] = {\r\n    hide_name_column: true\r\n};\r\n",
+  "view": "List"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Purchase Receipt",
+  "enabled": 0,
+  "modified": "2025-09-12 01:23:29.571474",
+  "module": null,
+  "name": "purchase receipt list",
+  "script": "frappe.listview_settings['Purchase Receipt'] = {\r\n    onload(listview) {\r\n        const style = document.createElement(\"style\");\r\n        style.innerHTML = `\r\n            /* Hilangkan kolom ID */\r\n            .list-row-col[data-fieldname=\"id\"],\r\n            .list-header-col[data-fieldname=\"id\"] {\r\n                display: none !important;\r\n            }\r\n\r\n            /* Atur kolom Purchase Receipt biar lebih lebar */\r\n            .list-row-col[data-fieldname=\"purchase_receipt\"],\r\n            .list-header-col[data-fieldname=\"purchase_receipt\"] {\r\n                flex: 2 0 300px !important;  /* lebih lebar */\r\n                max-width: 400px !important;\r\n            }\r\n\r\n            /* Atur kolom Title lebih kecil */\r\n            .list-row-col[data-fieldname=\"title\"],\r\n            .list-header-col[data-fieldname=\"title\"] {\r\n                flex: 1 0 120px !important;\r\n            }\r\n\r\n            /* Atur kolom Status lebih kecil */\r\n            .list-row-col[data-fieldname=\"status\"],\r\n            .list-header-col[data-fieldname=\"status\"] {\r\n                flex: 0 0 100px !important;\r\n            }\r\n\r\n            /* Atur kolom Date lebih kecil */\r\n            .list-row-col[data-fieldname=\"posting_date\"],\r\n            .list-header-col[data-fieldname=\"posting_date\"] {\r\n                flex: 0 0 120px !important;\r\n            }\r\n\r\n            /* Atur kolom Group Same Items lebih kecil */\r\n            .list-row-col[data-fieldname=\"group_same_items\"],\r\n            .list-header-col[data-fieldname=\"group_same_items\"] {\r\n                flex: 0 0 120px !important;\r\n            }\r\n        `;\r\n        document.head.appendChild(style);\r\n    }\r\n};\r\n",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Purchase Receipt",
+  "enabled": 1,
+  "modified": "2025-09-12 01:36:25.502524",
+  "module": null,
+  "name": "pr list",
+  "script": "frappe.listview_settings['Purchase Receipt'] = {\r\n    hide_name_column: true,   // sembunyikan kolom ID/Name\r\n\r\n    onload(listview) {\r\n        // pastikan kolom Purchase Receipt jadi dominan\r\n        listview.page.wrapper.find(\".list-row-col[data-fieldname='purchase_receipt']\")\r\n            .css(\"flex\", \"2 0 400px\"); // lebih lebar\r\n    },\r\n\r\n    // Kalau mau, bisa juga override fields default\r\n    add_fields: [\"supplier\", \"posting_date\", \"status\", \"purchase_receipt\"],\r\n    get_fields: [\"supplier\", \"posting_date\", \"status\", \"purchase_receipt\"]\r\n};\r\n",
+  "view": "List"
  }
 ]

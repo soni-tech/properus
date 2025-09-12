@@ -4032,56 +4032,6 @@
   "timeout": 0
  },
  {
-  "add_total_row": 1,
-  "add_translate_data": 0,
-  "columns": [],
-  "disabled": 0,
-  "docstatus": 0,
-  "doctype": "Report",
-  "filters": [],
-  "is_standard": "Yes",
-  "javascript": null,
-  "json": null,
-  "letter_head": null,
-  "modified": "2020-07-10 14:28:21.041310",
-  "module": "Buying",
-  "name": "Requested Items to Order and Receive",
-  "prepared_report": 0,
-  "query": "",
-  "ref_doctype": "Material Request",
-  "reference_report": null,
-  "report_name": "Requested Items to Order and Receive",
-  "report_script": null,
-  "report_type": "Script Report",
-  "roles": [
-   {
-    "parent": "Requested Items to Order and Receive",
-    "parentfield": "roles",
-    "parenttype": "Report",
-    "role": "Purchase Manager"
-   },
-   {
-    "parent": "Requested Items to Order and Receive",
-    "parentfield": "roles",
-    "parenttype": "Report",
-    "role": "Stock Manager"
-   },
-   {
-    "parent": "Requested Items to Order and Receive",
-    "parentfield": "roles",
-    "parenttype": "Report",
-    "role": "Stock User"
-   },
-   {
-    "parent": "Requested Items to Order and Receive",
-    "parentfield": "roles",
-    "parenttype": "Report",
-    "role": "Purchase User"
-   }
-  ],
-  "timeout": 0
- },
- {
   "add_total_row": 0,
   "add_translate_data": 0,
   "columns": [],
@@ -6314,6 +6264,44 @@
   "docstatus": 0,
   "doctype": "Report",
   "filters": [],
+  "is_standard": "No",
+  "javascript": null,
+  "json": null,
+  "letter_head": "Properus",
+  "modified": "2025-09-09 23:03:21.102663",
+  "module": "Core",
+  "name": "history",
+  "prepared_report": 0,
+  "query": "SELECT\r\n    v.modified AS `Date & Time`,\r\n    v.modified_by AS `User`,\r\n    v.ref_doctype AS `Doctype`,\r\n    v.docname AS `Document`,\r\n    CONCAT_WS('; ',\r\n        -- Submit dokumen (status berubah)\r\n        CASE \r\n            WHEN JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[0][0]')) = 'status'\r\n                 AND JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[0][2]')) IS NOT NULL\r\n            THEN CONCAT('Submit dokumen (',\r\n                        JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[0][1]')),\r\n                        ' → ',\r\n                        JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[0][2]')), ')')\r\n        END,\r\n        -- Edit dokumen: semua field kecuali posting_time, docstatus, status\r\n        CASE \r\n            WHEN JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[0][0]')) NOT IN ('posting_time','docstatus','status')\r\n                 AND JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[0][2]')) IS NOT NULL\r\n            THEN CONCAT('Edit ', JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[0][0]')),\r\n                        ' (', JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[0][1]')),\r\n                        ' → ', JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[0][2]')), ')')\r\n        END,\r\n        CASE \r\n            WHEN JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[1][0]')) NOT IN ('posting_time','docstatus','status')\r\n                 AND JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[1][2]')) IS NOT NULL\r\n            THEN CONCAT('Edit ', JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[1][0]')),\r\n                        ' (', JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[1][1]')),\r\n                        ' → ', JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[1][2]')), ')')\r\n        END,\r\n        CASE \r\n            WHEN JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[2][0]')) NOT IN ('posting_time','docstatus','status')\r\n                 AND JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[2][2]')) IS NOT NULL\r\n            THEN CONCAT('Edit ', JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[2][0]')),\r\n                        ' (', JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[2][1]')),\r\n                        ' → ', JSON_UNQUOTE(JSON_EXTRACT(v.data, '$.changed[2][2]')), ')')\r\n        END\r\n        -- bisa tambah sampai changed[9] jika perlu\r\n    ) AS `Action / Keterangan`\r\nFROM\r\n    `tabVersion` v\r\nWHERE\r\n    v.ref_doctype IN (\r\n        'Purchase Order','Sales Order','Delivery Note',\r\n        'Purchase Receipt','Stock Entry','Invoice',\r\n        'Payment Entry','Expense Claim','Material Request','Leave Application'\r\n    )\r\nORDER BY\r\n    v.modified DESC;\r\n",
+  "ref_doctype": "Version",
+  "reference_report": null,
+  "report_name": "history",
+  "report_script": "# Script Report: Activity Log Human-Friendly\r\n# Server Script compatible, pasti works\r\n\r\ndoctype_list = [\r\n    'Purchase Order', 'Sales Order', 'Delivery Note',\r\n    'Purchase Receipt', 'Stock Entry', 'Invoice',\r\n    'Payment Entry', 'Expense Claim', 'Material Request', 'Leave Application'\r\n]\r\n\r\ncolumns = [\r\n    {\"fieldname\":\"date_time\", \"label\":\"Date & Time\", \"fieldtype\":\"Datetime\", \"width\":150},\r\n    {\"fieldname\":\"user\", \"label\":\"User\", \"fieldtype\":\"Data\", \"width\":120},\r\n    {\"fieldname\":\"doctype\", \"label\":\"Doctype\", \"fieldtype\":\"Data\", \"width\":120},\r\n    {\"fieldname\":\"document\", \"label\":\"Document\", \"fieldtype\":\"Data\", \"width\":150},\r\n    {\"fieldname\":\"action\", \"label\":\"Action / Keterangan\", \"fieldtype\":\"Data\", \"width\":400}\r\n]\r\n\r\ndata = []\r\n\r\nversions = frappe.get_all('Version',\r\n    filters={'ref_doctype': ['in', doctype_list]},\r\n    fields=['modified','modified_by','ref_doctype','docname','data'],\r\n    order_by='modified desc'\r\n)\r\n\r\nfor v in versions:\r\n    # Jika v.data tidak null, ambil changed, kalau null pakai list kosong\r\n    changed_data = []\r\n    if v.data and type(v.data) == dict and 'changed' in v.data:\r\n        changed_data = v.data['changed']\r\n\r\n    actions = []\r\n\r\n    # Submit dokumen: status + docstatus berubah\r\n    status_change = [c for c in changed_data if c[0]=='status' and c[2] not in (None,'')]\r\n    docstatus_change = [c for c in changed_data if c[0]=='docstatus']\r\n    if status_change and docstatus_change:\r\n        actions.append(\"Submit dokumen ({} → {})\".format(status_change[0][1], status_change[0][2]))\r\n\r\n    # Field penting lainnya\r\n    important_fields = ['per_billed','qty','total','approved_by']\r\n    for c in changed_data:\r\n        if c[0] in important_fields and c[1] != c[2] and c[2] not in (None,''):\r\n            actions.append(\"Edit {} ({} → {})\".format(c[0], c[1], c[2]))\r\n\r\n    if actions:\r\n        data.append({\r\n            \"date_time\": v.modified,\r\n            \"user\": v.modified_by,\r\n            \"doctype\": v.ref_doctype,\r\n            \"document\": v.docname,\r\n            \"action\": \"; \".join(actions)\r\n        })\r\n\r\ncolumns, data\r\n",
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "history",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "history",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Administrator"
+   }
+  ],
+  "timeout": 0
+ },
+ {
+  "add_total_row": 0,
+  "add_translate_data": 0,
+  "columns": [],
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [],
   "is_standard": "Yes",
   "javascript": null,
   "json": null,
@@ -6584,6 +6572,56 @@
     "parentfield": "roles",
     "parenttype": "Report",
     "role": "Manufacturing Manager"
+   }
+  ],
+  "timeout": 0
+ },
+ {
+  "add_total_row": 1,
+  "add_translate_data": 0,
+  "columns": [],
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [],
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": null,
+  "modified": "2020-07-10 14:28:21.041310",
+  "module": "Buying",
+  "name": "Requested Items to Order and Receive",
+  "prepared_report": 0,
+  "query": "",
+  "ref_doctype": "Material Request",
+  "reference_report": null,
+  "report_name": "Requested Items to Order and Receive",
+  "report_script": null,
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "Requested Items to Order and Receive",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase Manager"
+   },
+   {
+    "parent": "Requested Items to Order and Receive",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Requested Items to Order and Receive",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Requested Items to Order and Receive",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
    }
   ],
   "timeout": 0
@@ -7869,56 +7907,6 @@
   "javascript": null,
   "json": null,
   "letter_head": null,
-  "modified": "2020-06-19 17:41:03.132101",
-  "module": "Selling",
-  "name": "Sales Analytics",
-  "prepared_report": 0,
-  "query": null,
-  "ref_doctype": "Sales Order",
-  "reference_report": null,
-  "report_name": "Sales Analytics",
-  "report_script": null,
-  "report_type": "Script Report",
-  "roles": [
-   {
-    "parent": "Sales Analytics",
-    "parentfield": "roles",
-    "parenttype": "Report",
-    "role": "Stock User"
-   },
-   {
-    "parent": "Sales Analytics",
-    "parentfield": "roles",
-    "parenttype": "Report",
-    "role": "Maintenance User"
-   },
-   {
-    "parent": "Sales Analytics",
-    "parentfield": "roles",
-    "parenttype": "Report",
-    "role": "Accounts User"
-   },
-   {
-    "parent": "Sales Analytics",
-    "parentfield": "roles",
-    "parenttype": "Report",
-    "role": "Sales Manager"
-   }
-  ],
-  "timeout": 0
- },
- {
-  "add_total_row": 1,
-  "add_translate_data": 0,
-  "columns": [],
-  "disabled": 0,
-  "docstatus": 0,
-  "doctype": "Report",
-  "filters": [],
-  "is_standard": "Yes",
-  "javascript": null,
-  "json": null,
-  "letter_head": null,
   "modified": "2017-03-06 05:52:06.235584",
   "module": "Accounts",
   "name": "Accounts Receivable",
@@ -8110,6 +8098,56 @@
     "parentfield": "roles",
     "parenttype": "Report",
     "role": "Accounts User"
+   }
+  ],
+  "timeout": 0
+ },
+ {
+  "add_total_row": 1,
+  "add_translate_data": 0,
+  "columns": [],
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [],
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": null,
+  "modified": "2020-06-19 17:41:03.132101",
+  "module": "Selling",
+  "name": "Sales Analytics",
+  "prepared_report": 0,
+  "query": null,
+  "ref_doctype": "Sales Order",
+  "reference_report": null,
+  "report_name": "Sales Analytics",
+  "report_script": null,
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "Sales Analytics",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Sales Analytics",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Maintenance User"
+   },
+   {
+    "parent": "Sales Analytics",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Sales Analytics",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sales Manager"
    }
   ],
   "timeout": 0
